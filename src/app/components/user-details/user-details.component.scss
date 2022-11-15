@@ -1,0 +1,21 @@
+.user-details-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+}
+.profile-picture {
+  width: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+.user-name{
+  font-weight: bold;
+}
+.followers-count{
+  color: #00003a;
+  opacity: 37%;
+}
