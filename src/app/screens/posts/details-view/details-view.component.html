@@ -1,0 +1,70 @@
+<mat-toolbar
+  routerLink="/feed"
+  class="back-to-list-view"
+  (click)="backToFeed()"
+>
+  <span class="material-icons">arrow_back</span>
+  <span>Back to List View</span>
+</mat-toolbar>
+
+<div class="preview-container">
+  <div class="feed-post">
+    <mat-card class="feed-post-container">
+      <div class="feed-header-container">
+        <div class="calendar-container">
+          <mat-icon svgIcon="calendar"> </mat-icon>
+          <div>Feed Post</div>
+        </div>
+
+        <div class="alphin-post-container">
+          <button mat-raised-button color="primary">
+            <mat-icon svgIcon="alphin"> </mat-icon>alphin post
+          </button>
+        </div>
+      </div>
+
+      <app-post-image></app-post-image>
+
+      <mat-card-content class="meta-data-container">
+        <section class="meta-deta">
+          <app-user-details [userDetails]="post$.user"></app-user-details>
+          <app-likes-comments
+            [counts]="post$.counts"
+            [postedTime]="post$.postedAt"
+          ></app-likes-comments>
+        </section>
+        <app-caption
+          [postCaption]="post$.caption"
+          class="caption-text"
+        ></app-caption>
+      </mat-card-content>
+
+      <button mat-stroked-button color="primary">Preview</button>
+    </mat-card>
+  </div>
+  <div class="comment-details">
+    Details View
+    <mat-card class="comment-container">
+      <form [formGroup]="postFormGroup" (ngSubmit)="submit()">
+        <mat-label class="comment-label">Add a comment</mat-label>
+        <mat-form-field appearance="outline" class="w-100">
+          <textarea
+            matInput
+            class="comment"
+            formControlName="comment"
+            type="text"
+          ></textarea>
+        </mat-form-field>
+        <div class="save-btn">
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="postFormGroup.pristine"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
