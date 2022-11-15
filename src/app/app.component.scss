@@ -1,0 +1,16 @@
+@use '@angular/material' as mat;
+@use '../assets/scss/colors' as colors;
+
+h1 {
+  color: colors.$alphin-blue;
+  span {
+    color: colors.$alphin-flush;
+  }
+}
+div {
+  display: flex;
+  align-items: center;
+  mat-icon {
+    margin-right: 16px;
+  }
+}

@@ -1,0 +1,25 @@
+@use 'colors' as colors;
+@use 'palettes' as palettes;
+@use '@angular/material' as mat;
+
+@include mat.core();
+$alphin-primary: mat.define-palette(palettes.$alphin-primary-palette, 500);
+$alphin-warn: mat.define-palette(palettes.$alphin-warn-palette, 500);
+
+$alphin-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $alphin-primary,
+      accent: $alphin-primary,
+      warn: $alphin-warn,
+    ),
+  )
+);
+@include mat.core-theme($alphin-theme);
+@include mat.all-component-themes($alphin-theme);
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: colors.$alphin-grey;
+  
+}
